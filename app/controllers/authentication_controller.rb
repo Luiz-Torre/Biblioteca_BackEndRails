@@ -1,5 +1,14 @@
 class AuthenticationController < ApplicationController
   def login
+    user = User.find_by(email: params[:user][:email])
+    user = user.authenticate(params[:user][:password])
+    if user
+      token = JsonWebToken.encode(user_id: user.id)
+      render json {token: token}
+    
+    else
+      render json: {message: "Não foi possivel fazer login"}, status: 401
+    end
   end
 
   def sign_up

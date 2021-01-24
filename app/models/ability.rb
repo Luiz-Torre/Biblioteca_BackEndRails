@@ -8,14 +8,12 @@ class Ability
     if user.admin?
       can :manage, User, role: 1
       can :manage, User, role: 0
-      can :manage, Book, :all
-      can :manage, Author, :all
-
 
     elsif user.clerk?
       can :manage, User, role: 0
       can :manage, Book, :all
       can :manage, Author, :all
+      can :manage, Loan, :all
 
     else
       can :read, Book

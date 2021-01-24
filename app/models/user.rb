@@ -6,10 +6,11 @@ class User < ApplicationRecord
     has_one :admin
     has_one :clerk
     has_one :client
-    
+
 
     #validações
-    validates :name, :email, :telephone,:password_confirmation, presence: true 
+    validates :name, :telephone,:password_confirmation, presence: true 
+    
     validates :email, :cpf, presence: true, uniqueness: true
 
     #funções

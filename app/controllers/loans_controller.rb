@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+  load_and_authorize_resource
   before_action :set_loan, only: [:show, :update, :destroy]
 
   # GET /loans
@@ -46,6 +47,6 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:expiry_date, :delay_days, :fine, :book_id, :user_id, :status)
+      params.require(:loan).permit(:expiry_date,:book_id, :client_id)
     end
 end

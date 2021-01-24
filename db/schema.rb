@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_020639) do
+ActiveRecord::Schema.define(version: 2021_01_24_153321) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_020639) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.integer "gender"
   end
 
   add_foreign_key "admins", "users"

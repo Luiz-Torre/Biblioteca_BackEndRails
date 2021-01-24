@@ -9,14 +9,15 @@ class User < ApplicationRecord
 
 
     #validações
-    validates :name, :telephone,:password_confirmation, presence: true 
+    validates :name, :telephone,:password_confirmation,:gender, presence: true 
     validates :email, format: {with: /\b[A-Z0-9._%a-z\-]+@id\.uff\.br\z/, message: "Utilize o seu email da UFF. Exemplo: meuemail@id.uff.br"}
     validates :cpf, format: {with: /\b\d{3}\.\d{3}\.\d{3}-\d{2}\z/, message: "Utilize um cpf valido. Exemplo: 000.000.000-00"}
     validates :email, :cpf, presence: true, uniqueness: true
 
     #funções
+    enum gender: {Masculino: 0, Feminino: 1}
     enum role: {client: 0, clerk: 1, admin: 2}
-
+    
     after_create :createRole
     def createRole
         if self.client?

@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_author, only: [:show, :update, :destroy]
 
   # GET /authors

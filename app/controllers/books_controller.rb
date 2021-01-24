@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_book, only: [:show, :update, :destroy]
 
   # GET /books
@@ -46,6 +47,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:author, :name, :url_image, :edition, :theme, :issue, :kind)
+      params.require(:book).permit(:author_id, :name, :url_image, :edition, :theme, :issue, :kind)
     end
 end

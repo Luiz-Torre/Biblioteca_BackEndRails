@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_one :admin
     has_one :clerk
     has_one :client
+    
 
     #validações
     validates :name, :email, :telephone,:password_confirmation, presence: true 

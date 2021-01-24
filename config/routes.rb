@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :loans
   resources :books
   resources :authors
   post '/login', to: 'authentication#login'

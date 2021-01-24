@@ -1,5 +1,5 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :name, :url_image, :edition, :theme, :issue, :kind, :author_id, :author
+  attributes  :author_id, :author, :id, :name, :url_image, :edition, :theme, :issue, :kind,
   belongs_to :author
 
  def author

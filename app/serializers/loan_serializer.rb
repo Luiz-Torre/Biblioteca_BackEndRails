@@ -5,6 +5,11 @@ class LoanSerializer < ActiveModel::Serializer
   User.find(self.object.client_id).name
  end
  def book
-  Book.find(self.object.client_id).name
+  Book.find(self.object.book_id).name
  end
+  
+ 
+
+
+
 end
